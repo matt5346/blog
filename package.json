@@ -1,0 +1,23 @@
+{
+    "name": "laravel",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "prepare:app": "cd resources/frontend/app && yarn install",
+        "serve:app": "cd resources/frontend/app && yarn run serve",
+        "build:app": "cd resources/frontend/app && yarn run build",
+        "lint:app": "cd resources/frontend/app && yarn run lint",
+        "test:app": "cd resources/frontend/app && yarn run test:unit"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/matt5346/crud-laravelVue-.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/matt5346/crud-laravelVue-/issues"
+    },
+    "homepage": "https://github.com/matt5346/crud-laravelVue-#readme"
+}
