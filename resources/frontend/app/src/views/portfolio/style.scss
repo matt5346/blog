@@ -1,0 +1,22 @@
+.portfolio__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.portfolio__inner-card__img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.portfolio__inner-card {
+    width: 48%;
+}
+
+.portfolio__inner-card__description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: color();
+}
