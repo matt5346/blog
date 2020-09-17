@@ -15,8 +15,10 @@ $light-theme--red: #d92027;
 $light-theme--red-30: rgba(217, 32, 39, .3);
 $light-theme--gray: #CCCCCC;
 $light-theme--yellow: #FFCD3C;
+$light-theme--orange: #FF9234;
 $light-theme--yellow-90: rgba(255, 205, 60, .9);
 $light-theme--light-blue: #35d0ba;
+$light-theme--light-blue-50: rgba(53, 208, 186, 0.5);
 $light-theme--link-color: #32acd8;
 
 :root, [data-theme="default"] {
@@ -26,33 +28,39 @@ $light-theme--link-color: #32acd8;
     --accent-color3: #{$light-theme--yellow};
     --accent-color3-90: #{$light-theme--yellow-90};
     --accent-color4: #{$light-theme--light-blue};
+    --accent-color4-50: #{$light-theme--light-blue-50};
     --accent-link-color: #{$light-theme--link-color};
     --accent-main-color: #{$black};
     --accent-main-color-50: #{$black-50};
     --accent-main-color2: #{$white};
+    --accent-main-color2-50: #{$white-50};
 
     //bg-images colors
     --accent-bg1-start: #{$light-theme--bg1-start};
     --accent-bg1-end: #{$light-theme--bg1-end};
+
+    //bg-posts colors
+    --accent-bg-post: #{$light-theme--orange};
 }
 
 // DARK COLORS THEME
-$light-theme--bg1-start: #BDE4F2;
-$light-theme--bg1-end: #5BC8F0;
+$dark-theme--bg1-start: #BDE4F2;
+$dark-theme--bg1-end: #5BC8F0;
 
 $dark-theme--dark: #143A52;
 $dark-theme--dark-30: rgba(20, 58, 82, 0.3);
 $dark-theme--dark-blue: #6E828A;
 $dark-theme--light-blue: #CDE3EB;
+$dark-theme--light-blue3: #b4dcee;
 $dark-theme--light-blue-30: rgba(205, 227, 235, 0.3);
 $dark-theme--light-blue-90: rgba(110, 130, 138, 0.9);
 $dark-theme--light-blue2: #E3EFF3;
 $dark-theme--link-color: #bbe7ff;
 
 [data-theme="dark"] {
-    --accent-color1: #{$dark-theme--dark};
+    --accent-color1: #{$dark-theme--light-blue};
     --accent-color1-30: #{$dark-theme--light-blue-30};
-    --accent-color2: #{$dark-theme--light-blue};
+    --accent-color2: #{$dark-theme--dark};
     --accent-color3: #{$dark-theme--dark-blue};
     --accent-color3-90: #{$dark-theme--light-blue-90};
     --accent-color4: #{$dark-theme--light-blue2};
@@ -62,8 +70,11 @@ $dark-theme--link-color: #bbe7ff;
     --accent-main-color2: #{$black};
 
     //bg-images colors
-    --accent-bg1-start: #{$light-theme--bg1-start};
-    --accent-bg1-end: #{$light-theme--bg1-end};
+    --accent-bg1-start: #{$dark-theme--bg1-start};
+    --accent-bg1-end: #{$dark-theme--bg1-end};
+
+    //bg-posts colors
+    --accent-bg-post: #{$dark-theme--light-blue3};
 }
 
 * {
@@ -147,6 +158,14 @@ a {
     }
 }
 
+.section__title {
+
+    @include lg {
+        font-size: rem-lg(24px);
+        margin: rem-lg(10px) 0 rem-lg(30px) 0;
+    }
+}
+
 .burger {
     background: none;
     border: none;
@@ -215,6 +234,59 @@ a {
         transition: all .14s ease-in-out;
     }
 
+    &.main-btn--read-post {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border: 1px solid color(color1);
+
+        &:before {
+            background: color(main-color2-50);
+        }
+    }
+
+    &.main-btn--portfolio {
+        border: 1px solid color(color1);
+
+        &:before {
+            background: color(main-color2);
+        }
+
+        @include lg {
+            padding: rem-lg(6px) rem-lg(22px);
+            font-size: rem-lg(18px);
+        }
+    }
+
+    &.main-btn--paginate {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include lg {
+            margin: rem-lg(30px) auto 0 auto;
+        }
+
+        .main-btn__text {
+            @include lg {
+                margin-right: rem-lg(10px);
+            }
+        }
+
+        &:hover {
+            .main-btn__icon {
+                fill: color(main-color2);
+                transform: rotate(180deg);
+            }
+        }
+
+        .main-btn__icon {
+            position: relative;
+            top: 2px;
+            transition: all .25s ease-in-out;
+        }
+
+    }
+
     &.main-btn--s-postIntro {
         @include lg {
             margin-top: rem-lg(30px)
@@ -254,4 +326,37 @@ a {
 .main-btn__text {
     z-index: 3;
     transition: color .27s ease-in-out;
+}
+
+.breadcrumbs {
+    display: flex;
+    @include lg {
+        margin-bottom: rem-lg(40px);
+    }
+}
+
+.breadcrumbs__item {
+    font-family: 'Roboto mono';
+    text-transform: uppercase;
+
+    @include lg {
+        font-size: rem-lg(14px);
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &.active {
+        text-decoration: underline;
+        color: color(color1);
+        font-weight: 700;
+    }
+}
+
+.breadcrumbs__arrow {
+    @include lg {
+        font-size: rem-lg(16px);
+        padding: 0 rem-lg(5px);
+    }
 }

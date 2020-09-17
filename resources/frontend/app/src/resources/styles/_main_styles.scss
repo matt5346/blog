@@ -30,124 +30,28 @@
 
 
 
-@keyframes spin2 {
+@keyframes fly {
     0% {
-      transform: rotate(0deg)
+      transform: translateY(-10px);
     }
-    20% {
-        transform: rotate(0deg);
-    }
-    30% {
-        transform: rotate(-180deg);
-    }
-    35% {
-        transform: rotate(-190deg);
-    }
-
-    40% {
-        transform: rotate(-180deg);
-    }
-
-    78% {
-        transform: rotate(-180deg);
-    }
-
-    95% {
-        transform: rotate(-360deg);
-    }
-
-    98% {
-        transform: rotate(-370deg);
-    }
-
-    100% {
-        transform: rotate(-360deg);
-    }
-}
-
-
-@keyframes spin3 {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    27% {
-        transform: rotate(0deg);
-    }
-
-    40% {
-        transform: rotate(180deg);
-    }
-
-    45% {
-        transform: rotate(190deg);
-    }
-
     50% {
-        transform: rotate(180deg);
+        transform: translateY(-40px);
     }
-
-    62% {
-        transform: rotate(180deg);
-    }
-
-    75% {
-        transform: rotate(360deg);
-    }
-
-    80% {
-        transform: rotate(370deg);
-    }
-
-    85% {
-        transform: rotate(360deg);
-    }
-
     100% {
-        transform: rotate(360deg);
+        transform: translateY(-10px);
     }
-
 }
 
-
-
-@keyframes spin4 {
+@keyframes fly-shadow {
     0% {
-        transform: rotate(0deg);
+        transform: translateY(-10px) translateX(-47%) scale(1.05);
     }
-
-    38% {
-        transform: rotate(0deg);
+    50% {
+        transform: translateY(20px) translateX(-45%) scale(1.2);
     }
-
-    60% {
-        transform: rotate(-360deg);
-    }
-
-    65% {
-        transform: rotate(-370deg);
-    }
-
-    75% {
-        transform: rotate(-360deg);
-    }
-
     100% {
-        transform: rotate(-360deg);
+        transform: translateY(-10px) translateX(-47%) scale(1.05);
     }
-
-}
-
-
-
-@keyframes rotate {
-    0% {
-        transform: rotateX(0);
-    }
-    1% {
-        transform: rotateX(0);
-    }
-    100% {}
 }
 
 // ------INTRO------//
@@ -171,6 +75,22 @@
         width: 100%;
         height: auto;
     }
+}
+
+.s-intro__box__cube-wrapper-shadow {
+    position: absolute;
+    bottom: 0;
+    left: 46.5%;
+    transform: translateX(-50%);
+    z-index: -1;
+    animation: fly-shadow infinite both 4s;
+    animation-delay: 0.1s;
+}
+
+.s-intro__box__cube-wrapper-box {
+    transform: translateY(-60px);
+    z-index: 1;
+    animation: fly infinite both 4s;
 }
 
 .s-intro__box__bg {
@@ -244,6 +164,10 @@
     @include lg {
         margin-bottom: rem-lg(30px);
     }
+}
+
+.s-postIntro__box__cube-wrapper__img {
+    animation: fly infinite both 4s;
 }
 
 
