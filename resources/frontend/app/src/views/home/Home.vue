@@ -39,7 +39,15 @@
                 </defs>
               </svg>
               <div class="s-intro__box__text">
-                <h1 class="s-intro__box__text-title">Loememremasd</h1>
+                <h1 class="s-intro__box__text-title">{{$t('homePage.greeting')}}</h1>
+                <div class="s-intro__box__text-wrapper">
+                  <h2 class="s-intro__box__text-subtitle">{{$t('homePage.name')}}</h2>
+                  <h2 class="s-intro__box__text-subtitle">{{$t('homePage.sphere')}}</h2>
+
+                  <button class="main-btn main-btn--s-postIntro">
+                    <span class="main-btn__text">{{$t('homePage.checkPortfolio')}}</span>
+                  </button>
+                </div>
               </div>
               <div class="s-intro__box__cube-wrapper">
                 <img class="s-intro__box__cube-wrapper-box" src="@/resources/img/cube.svg"/>
@@ -99,7 +107,7 @@
               </defs>
             </svg>
             <div class="s-postIntro__box__info">
-              <h1 class="s-postIntro__box__info-title">Loememremasd</h1>
+              <h1 class="s-postIntro__box__info-title">{{$t('homePage.posts')}}</h1>
               <div class="s-postIntro__box__info-images">
                 <img
                   class="s-postIntro__box__info-images__item"
@@ -111,7 +119,7 @@
                 />
               </div>
               <button class="main-btn main-btn--s-postIntro">
-                <span class="main-btn__text">BUTTON</span>
+                <span class="main-btn__text">{{$t('btnCheck')}}</span>
               </button>
             </div>
             <div class="s-postIntro__box__cube-wrapper">

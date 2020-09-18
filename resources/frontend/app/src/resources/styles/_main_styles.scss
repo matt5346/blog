@@ -77,6 +77,30 @@
     }
 }
 
+.s-intro__box__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 10%;
+
+    * {
+        font-family: 'Roboto mono';
+    }
+
+}
+
+.s-intro__box__text-title {
+    @include lg {
+        font-size: rem-lg(36px);
+    }
+}
+
+.s-intro__box__text-subtitle {
+    @include lg {
+        font-size: rem-lg(32px);
+    }
+}
+
 .s-intro__box__cube-wrapper-shadow {
     position: absolute;
     bottom: 0;
@@ -147,6 +171,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    padding-top: 15%;
 }
 
 .s-postIntro__box__info-images {
@@ -161,7 +186,9 @@
 }
 
 .s-postIntro__box__info-title {
+    font-family: 'Roboto mono';
     @include lg {
+        font-size: rem-lg(36px);
         margin-bottom: rem-lg(30px);
     }
 }

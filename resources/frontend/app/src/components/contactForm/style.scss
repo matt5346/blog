@@ -1,0 +1,146 @@
+.modal {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: color(main2-color-20);
+    z-index: 10;
+    backdrop-filter: blur(3px);
+    transition: all .3s linear;
+    &:before {
+        content: '';
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(1px);
+        background-color: color(main-color2-50);
+        z-index:-1;
+    }
+}
+
+.modal__inner {
+    position: relative;
+    z-index: 15;
+}
+
+.modal__form {
+    border-radius: 6px;
+    background-clip: padding-box;
+    background: color(main-color-50);
+    box-shadow: 0 0 13px 3px color(main-color-50);
+    overflow: hidden;
+
+    @include lg {
+        width: rem-lg(640px);
+        padding: rem-lg(20px);
+    }
+
+    h3 {
+        color: color(main-color2);
+        @include lg {
+            font-size: rem-lg(18px);
+            margin: 0 0 rem-lg(10px) 0;
+        }
+    }
+}
+
+.modal__form__textarea {
+    width: 100%;
+    height: 110px;
+    border: 3px solid color(color3);
+    border-radius: 6px;
+    background-clip: padding-box;
+    display:block;
+    color: color(main-color);
+    resize: none;
+    overflow: hidden;
+    transition: all .15s ease-in-out;
+
+    @include lg {
+        font-size: rem-lg(18px);
+        margin-bottom: rem-lg(20px);
+        padding: rem-lg(12px) rem-lg(20px);
+    }
+}
+
+.modal__form__input {
+    height: 48px;
+    width: 100%;
+    border: 3px solid color(color3);
+    border-radius: 6px;
+    background-clip: padding-box;
+    display: block;
+    color: color(main-color);
+    transition: all .15s ease-in-out;
+
+    @include lg {
+        font-size: rem-lg(18px);
+        margin-bottom: rem-lg(25px);
+        padding: rem-lg(12px) rem-lg(20px);
+    }
+}
+
+.modal__form__input:focus, .modal__form__textarea:focus {
+    box-shadow: 0 0 5px 3px color(color3);
+    overflow: hidden;
+}
+
+
+.modal__close {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    cursor: pointer;
+    transition: all .2s linear;
+
+    &:hover {
+        .modal__close__tip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .modal__close__icon {
+            transform: rotate(-90deg);
+            & rect {
+                stroke: color(color1);
+            }
+
+            & path {
+                fill: color(color1);
+            }
+        }
+
+    }
+}
+
+.modal__close__icon {
+    transition: transform .2s ease-in-out;
+}
+
+.modal__close__tip {
+    position: absolute;
+    right: -60px;
+    opacity: 0;
+    transition: opacity .2s ease-in-out, transform .4s ease-in-out;
+    transform: translateX(20px);
+
+    @include lg {
+        font-weight: 700;
+        font-size: rem-lg(16px);
+    }
+}

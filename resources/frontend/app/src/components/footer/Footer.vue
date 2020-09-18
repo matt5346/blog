@@ -110,8 +110,11 @@
             />
             <h2 class="footer__upper__contacts__title-text">Contact form</h2>
           </div>
-          <button class="main-btn secondary">
-            <span class="main-btn__text">BUTTON</span>
+          <button
+            @click="openContacts"
+            class="main-btn secondary"
+          >
+            <span class="main-btn__text">{{$t('click')}}</span>
           </button>
         </div>
       </div>
@@ -122,3 +125,15 @@
     </div>
   </footer>
 </template>
+
+<script>
+export default {
+  name: 'footerMain',
+  methods: {
+    openContacts () {
+      console.log('open-contactsopen-contactsFOOOOTER')
+      this.$emit('open-contacts')
+    }
+  }
+}
+</script>

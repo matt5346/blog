@@ -10,7 +10,18 @@ Vue.use(Vuei18n)
 
 const messages = {
   en: {
-    title: 'Lorem Blorem'
+    title: 'Lorem Blorem',
+    btnCheck: 'Check',
+    send: 'Send',
+    close: 'Close',
+    click: 'Click',
+    homePage: {
+      greeting: 'Hi!',
+      name: "I'm Matthew",
+      sphere: 'Frontend web developer',
+      posts: 'Latest Posts',
+      checkPortfolio: 'Check portfolio'
+    }
   },
   ru: {
     title: 'Лорем Блорем'
