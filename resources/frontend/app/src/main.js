@@ -15,6 +15,7 @@ const messages = {
     send: 'Send',
     close: 'Close',
     click: 'Click',
+    reply: 'Reply',
     homePage: {
       greeting: 'Hi!',
       name: "I'm Matthew",

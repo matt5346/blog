@@ -1,0 +1,84 @@
+.comments-form {
+    margin-top: 20px;
+    & h2 {
+        margin-bottom: 30px;
+    }
+}
+
+.form--reply {
+    display: none;
+    width: 80%;
+    margin-left: auto;
+    @include lg {
+        margin-top: rem-lg(30px);
+    }
+
+
+    &.showForm {
+        display: block;
+    }
+}
+
+.comments-form__field {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    @include lg {
+        margin-bottom: rem-lg(30px);
+    }
+}
+
+.comments-form__field-input {
+    width: 85%;
+    background: color(color4);
+    border: none;
+    color: color(main-color2);
+    transition: all .2s ease-in-out;
+    @include lg {
+        padding: rem-lg(15px) rem-lg(20px);
+        font-size: rem-lg(18px);
+    }
+
+    &::placeholder {
+        color: color(main-color2);
+        opacity: 0.6;
+    }
+
+    &:focus {
+        box-shadow: 0 0 5px 1px (color(main-color));
+        &::placeholder {
+            opacity: 1;
+        }
+    }
+}
+
+.comments-form__field-name {
+    @include lg {
+        font-size: rem-lg(18px);
+    }
+}
+
+.comments-form__field-textarea {
+    width: 85%;
+    background: color(color3);
+    border: none;
+    transition: all .2s ease-in-out;
+    color: color(main-color2);
+    @include lg {
+        padding: rem-lg(15px) rem-lg(20px);
+        font-size: rem-lg(18px);
+    }
+
+    &::placeholder {
+        color: color(main-color2);
+        opacity: 0.6;
+    }
+
+    &:focus {
+        box-shadow: 0 0 5px 1px (color(main-color));
+        &::placeholder {
+            opacity: 1;
+        }
+    }
+
+}

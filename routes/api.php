@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('comments', 'API\AppApi@store');
+Route::get('comments/{id}', 'API\AppApi@getCommentById');
+
+Route::apiResource('comments', 'API\AppApi');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

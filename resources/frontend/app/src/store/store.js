@@ -4,13 +4,15 @@ import Vuex from 'vuex'
 // MODULES
 import Posts from './modules/posts'
 import Portfolio from './modules/portfolio'
+import Comments from './modules/comments'
 
 Vue.use(Vuex)
 
 const mainStore = {
   modules: {
     Posts,
-    Portfolio
+    Portfolio,
+    Comments
   },
   state: {
     isLoaded: false
