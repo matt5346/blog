@@ -17,10 +17,9 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->string('content');
             $table->string('author');
-            $table->integer('likes');
-            $table->integer('dislikes');
             $table->integer('postId');
             $table->boolean('replyStatus');
+            $table->json('commentReplies');
             $table->timestamps();
         });
     }

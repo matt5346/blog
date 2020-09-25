@@ -6,16 +6,10 @@
 }
 
 .form--reply {
-    display: none;
     width: 80%;
     margin-left: auto;
     @include lg {
         margin-top: rem-lg(30px);
-    }
-
-
-    &.showForm {
-        display: block;
     }
 }
 

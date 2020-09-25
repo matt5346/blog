@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Comments;
+use Illuminate\Support\Facades\Log;
 
 class AppApi extends Controller
 {
@@ -37,14 +38,17 @@ class AppApi extends Controller
 //            'dislikes'=> $request('dislikes'),
 //            'postId'=> $request('postId')
 //        ]);
+        Log::emergency('zzzzzzzz');
+        Log::emergency($request);
+        Log::emergency('zzzzzzzz');
 
         $comment = new Comments();
         $comment->id = $request -> id;
         $comment->content = $request -> content;
         $comment->author = $request -> author;
-        $comment->likes = $request -> likes;
-        $comment->dislikes = $request -> dislikes;
         $comment->postId = $request -> postId;
+        $comment->replyStatus = $request -> replyStatus;
+        $comment->commentReplies = $request-> commentReplies;
         $comment->save();
 
         return response()->json([

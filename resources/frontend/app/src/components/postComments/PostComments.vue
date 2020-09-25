@@ -24,7 +24,7 @@
           </div>
           <button
             class="main-btn main-btn--comment"
-            @click="commentReply"
+            @click="commentReply(item)"
           >
             <span class="main-btn__text">{{$t('Reply')}}</span>
           </button>
@@ -99,23 +99,31 @@ export default {
     ...mapActions('Comments', ['fetchComments']),
     ...mapActions('Comments', ['postComment']),
     postCommentSubmit () {
+      const replyObj = {
+        authorReply: this.name,
+        contentReply: this.content
+      }
+
       const commentItem = {
         id: Date.now(),
         content: this.content,
         author: this.name,
-        likes: 0,
-        dislikes: 0,
-        postId: this.postId
+        postId: this.postId,
+        replyStatus: 0,
+        commentReplies: [JSON.stringify(replyObj)] + ''
       }
+
       this.postComment(commentItem)
     },
     commentsListAssign () {
       this.commentsList = this.getComments
     },
-    commentReply () {
-      console.log(this.active, 'thisactive')
-      this.
-      console.log(this.getComments, 'this.getComments')
+    commentReply (item) {
+      if (parseInt(item.replyStatus) === 0) {
+        item.replyStatus = 1
+      } else if (parseInt(item.replyStatus) === 1) {
+        item.replyStatus = 0
+      }
     },
     commentPlaceholder (name) {
       return name.charAt(0).toUpperCase()

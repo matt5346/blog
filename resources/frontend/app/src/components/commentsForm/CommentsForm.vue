@@ -54,14 +54,17 @@ export default {
         id: Date.now(),
         content: this.content,
         author: this.name,
-        likes: 0,
-        dislikes: 0,
-        postId: this.postId
+        postId: this.postId,
+        replyStatus: 0,
+        commentReplies: '[]'
       }
       this.postComment(commentItem)
+      this.name = ''
+      this.content = ''
     }
   }
 }
+
 </script>
 
 <style lang="scss">
