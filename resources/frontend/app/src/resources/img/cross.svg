@@ -1,4 +1,5 @@
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="1.5" y="1.5" width="27" height="27" rx="4.5" stroke="black" stroke-width="3"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M15.0001 17.1213L8.56077 23.5606L6.43945 21.4393L12.8788 15L6.43945 8.56065L8.56077 6.43933L15.0001 12.8787L21.4395 6.43933L23.5608 8.56065L17.1214 15L23.5608 21.4393L21.4395 23.5606L15.0001 17.1213V17.1213Z" fill="black"/>
-</svg>
+
+            <svg class="modal__close__icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1.5" y="1.5" width="27" height="27" rx="4.5" stroke="black" stroke-width="3"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0001 17.1213L8.56077 23.5606L6.43945 21.4393L12.8788 15L6.43945 8.56065L8.56077 6.43933L15.0001 12.8787L21.4395 6.43933L23.5608 8.56065L17.1214 15L23.5608 21.4393L21.4395 23.5606L15.0001 17.1213V17.1213Z" fill="black"/>
+            </svg>

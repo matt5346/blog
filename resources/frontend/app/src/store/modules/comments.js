@@ -18,21 +18,47 @@ export default {
     CREATE_COMMENT (state, item) {
       state.postComments.push(item)
     },
+    UPDATE_COMMENT (state, { replyObj, id }) {
+      state.postComments.filter((comment, key) => {
+        if (comment.id === id) {
+          state.postComments[key].commentReplies.push(replyObj.reply)
+        }
+      })
+    },
+    EDIT_COMMENT (state, { commentEdit, id }) {
+      state.postComments.filter((item, key) => {
+        if (item.id === id) {
+          console.log(commentEdit, 'CHANGED')
+          state.postComments[key].content = commentEdit.edit.commentContent
+          state.postComments[key].author = commentEdit.edit.commentAuthor
+        }
+      })
+    },
+    DELETE_COMMENT (state, id) {
+      state.postComments.filter((comment, key) => {
+        if (comment.id === id) {
+          state.postComments.splice(key, 1)
+        }
+      })
+    },
     loader_init (state, result) {
       state.isLoaded = result
     }
   },
   actions: {
-    fetchComments ({ commit }, id) {
+    fetchComments ({ commit }, postId) {
       const baseUrl = 'http://localhost:8000/api/comments'
       try {
         axios({
           method: 'get',
-          url: `${baseUrl}/${id}`
+          url: `${baseUrl}/${postId}`
         })
           .then(res => {
-            console.log(res.data, 'COMMENTS RESPONSE')
-            commit('changeComments', res.data)
+            const comments = res.data.filter(item => {
+              item.commentReplies = JSON.parse(item.commentReplies)
+              return item
+            })
+            commit('changeComments', comments)
           })
           .catch(err => console.log(err, 'fetchComments'))
       } catch (er) {
@@ -48,12 +74,58 @@ export default {
           url: `${baseUrl}`
         })
           .then(res => {
-            console.log(res.data, 'COMMENTS RESPONSE')
             commit('CREATE_COMMENT', item)
           })
           .catch(err => console.log(err, 'postComment'))
       } catch (er) {
         console.log(er, 'postComment')
+      }
+    },
+    editCommentAction ({ commit }, { commentEdit, id }) {
+      const baseUrl = 'http://localhost:8000/api/comments'
+      try {
+        axios({
+          method: 'put',
+          data: commentEdit,
+          url: `${baseUrl}/${id}`
+        })
+          .then(res => {
+            commit('EDIT_COMMENT', { commentEdit, id })
+          })
+          .catch(err => console.log(err, 'editCommentAction'))
+      } catch (er) {
+        console.log(er, 'editCommentAction')
+      }
+    },
+    updateCommentAction ({ commit }, { replyObj, id }) {
+      const baseUrl = 'http://localhost:8000/api/comments'
+      try {
+        axios({
+          method: 'put',
+          data: replyObj,
+          url: `${baseUrl}/${id}`
+        })
+          .then(res => {
+            commit('UPDATE_COMMENT', { replyObj, id })
+          })
+          .catch(err => console.log(err, 'postUpdate'))
+      } catch (er) {
+        console.log(er, 'postUpdate')
+      }
+    },
+    deleteCommentAction ({ commit }, id) {
+      const baseUrl = 'http://localhost:8000/api/comments'
+      try {
+        axios({
+          method: 'delete',
+          url: `${baseUrl}/${id}`
+        })
+          .then(res => {
+            commit('DELETE_COMMENT', id)
+          })
+          .catch(err => console.log(err, 'postUpdate'))
+      } catch (er) {
+        console.log(er, 'postUpdate')
       }
     }
   }

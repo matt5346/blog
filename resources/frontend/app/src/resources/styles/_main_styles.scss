@@ -28,7 +28,65 @@
     }
 }
 
+@keyframes logo-scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes swing {
+    20% {
+        transform: rotate(15deg);
+    }
+
+    40% {
+        transform: rotate(-10deg);
+    }
+
+    60% {
+        transform: rotate(5deg);
+    }
+
+    80% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
 
 @keyframes fly {
     0% {
@@ -96,6 +154,7 @@
 }
 
 .s-intro__box__text-subtitle {
+    width: 90%;
     @include lg {
         font-size: rem-lg(32px);
     }
@@ -120,10 +179,13 @@
 .s-intro__box__bg {
     position: absolute;
     left: -30%;
-    top: -130px;
     z-index: -1;
     width: 80%;
     height: auto;
+
+    @include lg {
+        top: rem-lg(-250px);
+    }
 }
 
 .s-intro__box__bg-stop-start {
@@ -248,7 +310,7 @@
 }
 
 .footer__upper__socials-item__img {
-    transition: all .3s ease-in-out;
+    transition: all .1s ease-in-out;
     @include lg {
         margin-right: rem-lg(10px);
     }

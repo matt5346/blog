@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
             $table->string('author');
             $table->integer('postId');
             $table->boolean('replyStatus');
+            $table->boolean('editStatus');
             $table->json('commentReplies');
             $table->timestamps();
         });

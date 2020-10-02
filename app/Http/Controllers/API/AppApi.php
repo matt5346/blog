@@ -17,6 +17,12 @@ class AppApi extends Controller
     public function index()
     {
         $comments = Comments::all();
+
+        foreach($comments as $item) {
+            $item->commentReplies = json_decode($item->commentReplies, true);
+            Log::emergency(gettype($item->commentReplies));
+        }
+
         return $comments;
     }
 
@@ -29,26 +35,17 @@ class AppApi extends Controller
 
     public function store(Request $request)
     {
-//        $comments = Comments::create($request->all());
-//        $comments = Comments::create([
-//            'id'=> $request -> id,
-//            'content'=> $request('content'),
-//            'author'=> $request('author'),
-//            'likes'=> $request('likes'),
-//            'dislikes'=> $request('dislikes'),
-//            'postId'=> $request('postId')
-//        ]);
-        Log::emergency('zzzzzzzz');
+        Log::emergency('storestorestore');
         Log::emergency($request);
-        Log::emergency('zzzzzzzz');
 
         $comment = new Comments();
-        $comment->id = $request -> id;
-        $comment->content = $request -> content;
-        $comment->author = $request -> author;
-        $comment->postId = $request -> postId;
-        $comment->replyStatus = $request -> replyStatus;
-        $comment->commentReplies = $request-> commentReplies;
+        $comment->id=$request->id;
+        $comment->content=$request->content;
+        $comment->author=$request->author;
+        $comment->postId=$request->postId;
+        $comment->replyStatus=$request->replyStatus;
+        $comment->editStatus=$request->editStatus;
+        $comment->commentReplies=json_encode($request->commentReplies);
         $comment->save();
 
         return response()->json([
@@ -59,7 +56,8 @@ class AppApi extends Controller
 
     public function getCommentById(int $id)
     {
-        $comment = Comments::where(['postId' => $id])->get();
+        $comment=Comments::where(['postId'=>$id])->get();
+
         return $comment;
     }
 
@@ -83,7 +81,25 @@ class AppApi extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comment=Comments::findOrFail($id);
+
+        if(isset($request->reply)) {
+            $t = json_decode($comment->commentReplies, true);
+            $t[] = $request->reply;
+            $comment->commentReplies = json_encode($t);
+            $comment->save();
+        }
+
+        if(isset($request->edit)) {
+            $comment->content = array_values($request->edit)[0];
+            $comment->author = array_values($request->edit)[1];
+            $comment->save();
+        }
+
+        return response()->json([
+            'comment' => $comment,
+            'message'=> 'Success'
+        ], 200);
     }
 
     /**
@@ -94,6 +110,11 @@ class AppApi extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment=Comments::findOrFail($id);
+
+        $comment::destroy($id);
+        return response()->json([
+            'message'=> 'Comment Deleted'
+        ], 200);
     }
 }

@@ -8,7 +8,7 @@
           v-model="content"
           rows="4" cols="50"
           name="subject"
-          placeholder="Your message"
+          placeholder="Here is your message"
           class="comments-form__field-textarea"
           maxlength="250"
           required
@@ -19,7 +19,7 @@
         <input
           v-model="name"
           name="name"
-          placeholder="What is your name?"
+          placeholder="Here is your name"
           class="comments-form__field-input"
           maxlength="50"
           required
@@ -49,14 +49,14 @@ export default {
   methods: {
     ...mapActions('Comments', ['postComment']),
     postCommentSubmit () {
-      console.log('POSTED')
       const commentItem = {
         id: Date.now(),
         content: this.content,
         author: this.name,
         postId: this.postId,
         replyStatus: 0,
-        commentReplies: '[]'
+        editStatus: 0,
+        commentReplies: []
       }
       this.postComment(commentItem)
       this.name = ''

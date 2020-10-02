@@ -1,37 +1,23 @@
 import Vue from 'vue'
-import Vuei18n from 'vue-i18n'
+import i18n from './i18n'
 import App from './App.vue'
 import router from './router'
 import store from './store/store'
 
 Vue.config.productionTip = false
 
-Vue.use(Vuei18n)
-
-const messages = {
-  en: {
-    title: 'Lorem Blorem',
-    btnCheck: 'Check',
-    send: 'Send',
-    close: 'Close',
-    click: 'Click',
-    reply: 'Reply',
-    homePage: {
-      greeting: 'Hi!',
-      name: "I'm Matthew",
-      sphere: 'Frontend web developer',
-      posts: 'Latest Posts',
-      checkPortfolio: 'Check portfolio'
+Vue.directive('click-outside', {
+  bind: function (el, binding, vnode) {
+    document.event = function (event) {
+      if (!(el === event.target || el.contains(event.target))) {
+        vnode.context[binding.expression](event)
+      }
     }
+    document.body.addEventListener('click', document.event)
   },
-  ru: {
-    title: 'Лорем Блорем'
+  unbind: function (el) {
+    document.body.removeEventListener('click', document.event)
   }
-}
-
-const i18n = new Vuei18n({
-  locale: 'en',
-  messages
 })
 
 new Vue({

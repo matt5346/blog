@@ -49,12 +49,12 @@ export default {
       return [
         {
           active: false,
-          name: 'Home',
+          name: this.$t('header.home'),
           href: '/'
         },
         {
           active: true,
-          name: 'Portfolio',
+          name: this.$t('header.portfolio'),
           href: '/Portfolio'
         }
       ]

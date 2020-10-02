@@ -33,7 +33,6 @@ export default {
     },
     mounted () {
       this.fetchSinglePost(this.currentPostId)
-      console.log(this.getPost, 'getPost')
     },
     computed: {
         ...mapGetters('Posts', ['getPost']),
@@ -44,17 +43,17 @@ export default {
           return [
             {
               active: false,
-              name: 'Home',
+              name: this.$t('header.home'),
               href: '/'
             },
             {
               active: false,
-              name: 'Posts',
+              name: this.$t('header.posts'),
               href: '/Posts'
             },
             {
               active: true,
-              name: 'Post ' + this.$route.params.id,
+              name: this.$t('posts.post') + ' №' + this.$route.params.id,
               href: '/Posts/' + this.$route.params.id
             }
           ]

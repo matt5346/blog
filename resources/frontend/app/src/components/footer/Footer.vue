@@ -3,7 +3,7 @@
     <div class="container">
       <div class="footer__upper">
         <div class="footer__upper__socials">
-          <h2 class="footer__upper__title">Socials</h2>
+          <h2 class="footer__upper__title">{{$t('footer.socials')}}</h2>
           <div class="footer__upper__socials-item">
             <svg
               class="footer__upper__socials-item__img"
@@ -19,7 +19,7 @@
                 fill-rule="evenodd"
               />
             </svg>
-            <span class="footer__upper__socials-item__text">Telegram</span>
+            <span class="footer__upper__socials-item__text">{{$t('footer.telegram')}}</span>
           </div>
           <div class="footer__upper__socials-item">
             <svg
@@ -71,8 +71,7 @@
                 d="M17.5127 37.3619C17.5462 37.5476 17.352 37.7382 17.0745 37.7886C16.8017 37.8379 16.5492 37.7233 16.5145 37.5392C16.4807 37.3489 16.6784 37.1583 16.9508 37.109C17.2286 37.0617 17.4773 37.1732 17.5127 37.3619Z"
               />
             </svg>
-
-            <span class="footer__upper__socials-item__text">Github</span>
+            <span class="footer__upper__socials-item__text">{{$t('footer.github')}}</span>
           </div>
           <div class="footer__upper__socials-item">
             <svg
@@ -99,7 +98,7 @@
                 d="M23.5012 18.9111C25.8084 18.9111 27.679 20.7417 27.679 23.0001C27.679 25.2582 25.8084 27.089 23.5012 27.089C21.1937 27.089 19.3234 25.2582 19.3234 23.0001C19.3234 20.7417 21.1937 18.9111 23.5012 18.9111V18.9111Z"
               />
             </svg>
-            <span class="footer__upper__socials-item__text">Instagram</span>
+            <span class="footer__upper__socials-item__text">{{$t('footer.instagram')}}</span>
           </div>
         </div>
         <div class="footer__upper__contacts">
@@ -108,7 +107,7 @@
               class="footer__upper__contacts__title-img"
               src="@/resources/img/mail.svg"
             />
-            <h2 class="footer__upper__contacts__title-text">Contact form</h2>
+            <h2 class="footer__upper__contacts__title-text">{{$t('footer.contactF')}}</h2>
           </div>
           <button
             @click="openContacts"
@@ -120,7 +119,7 @@
       </div>
 
       <div class="footer__copyrights">
-        <p><b>©</b> 2020 All rights reserved. Made by Mattiz</p>
+        <p><b>©</b> {{$t('footer.copyright')}}</p>
       </div>
     </div>
   </footer>

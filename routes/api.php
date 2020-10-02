@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('comments', 'API\AppApi@store');
 Route::get('comments/{id}', 'API\AppApi@getCommentById');
+Route::put('comments/{id}', 'API\AppApi@update');
+Route::delete('comments/{id}', 'API\AppApi@destroy');
 
 Route::apiResource('comments', 'API\AppApi');
 

@@ -71,6 +71,7 @@ $dark-theme--link-color: #bbe7ff;
     --accent-main-color: #{$white};
     --accent-main-color-50: #{$white-50};
     --accent-main-color2: #{$black};
+    --accent-main-color2-50: #{$black-50};
     --accent-main-color2-20: #{$black-20};
 
     //bg-images colors
@@ -246,20 +247,136 @@ path {
         transition: all .14s ease-in-out;
     }
 
+    &.small {
+        @include lg {
+            padding: rem-lg(6px) rem-lg(10px);
+            font-size: rem-lg(18px);
+        }
+    }
+
+    &.middle {
+        @include lg {
+            padding: rem-lg(15px) rem-lg(25px);
+            font-size: rem-lg(18px);
+        }
+    }
+
+    &.main-btn--delete {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+
+        .main-btn__text {
+            position: absolute;
+            width: 100%;
+            top: 50px;
+            left: -50%;
+            opacity: 0;
+            transform: translateX(40%);
+            transition: all .2s linear;
+        }
+
+        &:hover {
+            .main-btn__text {
+                transform: translateX(50%);
+                opacity: 1;
+                color: color(color1);
+            }
+            svg {
+                fill: color(color1);
+            }
+            &:before {
+                background: color(color3);
+            }
+        }
+
+        &:after {
+            background: color(color3);
+        }
+
+        &:before {
+            background: color(color1);
+        }
+        svg {
+            fill: color(main-color2);
+        }
+    }
+
+    &.main-btn--edit {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 10px;
+
+        .main-btn__text {
+            position: absolute;
+            width: 100%;
+            top: 50px;
+            left: -50%;
+            opacity: 0;
+            transform: translateX(40%);
+            transition: all .2s linear;
+        }
+
+        &:hover {
+            .main-btn__text {
+                transform: translateX(50%);
+                opacity: 1;
+                color: color(main-color);
+            }
+
+            svg {
+                fill: color(main-color2);
+            }
+        }
+
+        &:after {
+            background: color(color3);
+        }
+
+        &:before {
+            background: color(main-color2);
+        }
+    }
+
     &.main-btn--create-comment {
         display: block;
         margin-left: auto;
+
     }
 
     &.main-btn--comment {
-        position: absolute;
-        right: 1px;
-        bottom: 1px;
         display: block;
-        margin-left: auto;
-        @include lg {
-            padding: rem-lg(6px) rem-lg(22px);
-            font-size: rem-lg(18px);
+        margin-left: 10px;
+
+
+        [data-theme="dark"] & {
+            & .main-btn__text {
+                color: #000000;
+            }
+
+            &:hover {
+                &:before {
+                    background: color(color3);
+                }
+                .main-btn__text {
+                    color: #ffffff;
+                }
+            }
+        }
+
+        &:hover {
+            span {
+                color: color(main-color);
+            }
+        }
+
+        &:after {
+            background: color(color3);
+        }
+
+        &:before {
+            background: color(main-color2);
         }
     }
 
@@ -333,7 +450,7 @@ path {
         [data-theme="dark"] & {
             &:hover {
                 .main-btn__text {
-                    color: color(link-color);
+                    color: color(main-color2);
                 }
             }
         }

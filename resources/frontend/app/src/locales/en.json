@@ -1,0 +1,33 @@
+{
+    "title": "Lorem Blorem",
+    "btnCheck": "Check",
+    "send": "Send",
+    "close": "Close",
+    "click": "Click",
+    "reply": "Reply",
+    "edit": "Edit",
+    "delete": "Delete",
+    "homePage": {
+        "greeting": "Hi!",
+        "name": "I'm Matthew",
+        "sphere": "Frontend web developer",
+        "posts": "Latest Posts",
+        "checkPortfolio": "Check portfolio"
+    },
+    "header": {
+        "home": "Home",
+        "portfolio": "Portfolio",
+        "posts": "Posts"
+    },
+    "footer": {
+        "socials": "Socials",
+        "telegram": "Telegram",
+        "github": "Github",
+        "instagram": "Instagram",
+        "contactF": "Contact form",
+        "copyright": "2020 All rights reserved. Made by Mattiz"
+    },
+    "posts": {
+        "post": "post"
+    }
+}

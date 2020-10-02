@@ -6,6 +6,7 @@
 }
 
 .form--reply {
+    position: relative;
     width: 80%;
     margin-left: auto;
     @include lg {
@@ -24,7 +25,7 @@
 
 .comments-form__field-input {
     width: 85%;
-    background: color(color4);
+    background: color(color3);
     border: none;
     color: color(main-color2);
     transition: all .2s ease-in-out;
@@ -54,7 +55,7 @@
 
 .comments-form__field-textarea {
     width: 85%;
-    background: color(color3);
+    background: color(color4);
     border: none;
     transition: all .2s ease-in-out;
     color: color(main-color2);
@@ -75,4 +76,32 @@
         }
     }
 
+}
+
+.form__close {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: -50px;
+    top: 0;
+    cursor: pointer;
+    transition: all .2s linear;
+
+    &:hover {
+        .form__close__icon {
+            transform: rotate(-90deg);
+            & rect {
+                stroke: color(color1);
+            }
+
+            & path {
+                fill: color(color1);
+            }
+        }
+
+    }
+}
+
+.form__close__icon {
+    transition: transform .2s ease-in-out;
 }

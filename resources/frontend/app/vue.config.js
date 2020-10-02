@@ -2,6 +2,14 @@ module.exports = {
  devServer: {
    proxy: 'http://laravel.test'
  },
+  pluginOptions: {
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: true
+    }
+  },
   css: {
     loaderOptions: {
       // pass options to sass-loader

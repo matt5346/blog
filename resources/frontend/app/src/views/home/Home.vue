@@ -43,10 +43,13 @@
                 <div class="s-intro__box__text-wrapper">
                   <h2 class="s-intro__box__text-subtitle">{{$t('homePage.name')}}</h2>
                   <h2 class="s-intro__box__text-subtitle">{{$t('homePage.sphere')}}</h2>
-
-                  <button class="main-btn main-btn--s-postIntro">
-                    <span class="main-btn__text">{{$t('homePage.checkPortfolio')}}</span>
-                  </button>
+                  <router-link
+                    to="/portfolio"
+                  >
+                    <button class="main-btn main-btn--s-postIntro">
+                      <span class="main-btn__text">{{$t('homePage.checkPortfolio')}}</span>
+                    </button>
+                  </router-link>
                 </div>
               </div>
               <div class="s-intro__box__cube-wrapper">
@@ -118,9 +121,13 @@
                   src="@/resources/img/placeholder.png"
                 />
               </div>
-              <button class="main-btn main-btn--s-postIntro">
-                <span class="main-btn__text">{{$t('btnCheck')}}</span>
-              </button>
+              <router-link
+                to="/posts"
+              >
+                <button class="main-btn main-btn--s-postIntro">
+                  <span class="main-btn__text">{{$t('btnCheck')}}</span>
+                </button>
+              </router-link>
             </div>
             <div class="s-postIntro__box__cube-wrapper">
               <img
