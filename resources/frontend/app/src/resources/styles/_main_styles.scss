@@ -304,6 +304,10 @@
         }
     }
 
+}
+
+.footer__upper__socials-item-link {
+    display: block;
     @include lg {
         margin-bottom: rem-lg(20px);
     }
