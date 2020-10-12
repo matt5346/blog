@@ -47,7 +47,7 @@ export default {
   },
   actions: {
     fetchComments ({ commit }, postId) {
-      const baseUrl = 'http://localhost:8000/api/comments'
+      const baseUrl = process.env.VUE_APP_BASE_URL + '/comments'
       try {
         axios({
           method: 'get',
@@ -66,7 +66,7 @@ export default {
       }
     },
     postComment ({ commit }, item) {
-      const baseUrl = 'http://localhost:8000/api/comments'
+      const baseUrl = process.env.VUE_APP_BASE_URL + '/comments'
       try {
         axios({
           method: 'post',
@@ -82,7 +82,7 @@ export default {
       }
     },
     editCommentAction ({ commit }, { commentEdit, id }) {
-      const baseUrl = 'http://localhost:8000/api/comments'
+      const baseUrl = process.env.VUE_APP_BASE_URL + '/comments'
       try {
         axios({
           method: 'put',
@@ -98,7 +98,7 @@ export default {
       }
     },
     updateCommentAction ({ commit }, { replyObj, id }) {
-      const baseUrl = 'http://localhost:8000/api/comments'
+      const baseUrl = process.env.VUE_APP_BASE_URL + '/comments'
       try {
         axios({
           method: 'put',
@@ -114,7 +114,7 @@ export default {
       }
     },
     deleteCommentAction ({ commit }, id) {
-      const baseUrl = 'http://localhost:8000/api/comments'
+      const baseUrl = process.env.VUE_APP_BASE_URL + '/comments'
       try {
         axios({
           method: 'delete',
